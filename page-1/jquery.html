@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery - WebLibCDN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="icon" type="x-icon" href="https://favicon-generator.org/favicon-generator/htdocs/favicons/2015-01-12/f8828d4d8265f2ff4ee57eedc740a4c6.ico">
+<script src="/main.js"></script>
+
+</head>
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+  <a href="/index.html" class="w3-bar-item w3-button">Home</a>
+  <a href="/about.html" class="w3-bar-item w3-button">About</a>
+</nav>
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
+  <div class="w3-center">
+  <h1 class="w3-xxxlarge w3-animate-bottom">jQuery</h1>
+  </div>
+</header>
+
+<center><img src="https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/JQuery_logo-512.png" width="150" height="auto"></center>
+
+<div class="w3-row w3-border">
+  <div class="w3-third w3-container">
+    <h5>Description:</h5>
+    <p>jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.</p>
+  </div>
+  <div class="w3-third w3-container">
+    <h5>License:</h5>
+    <a href="https://opensource.org/licenses/MIT"><p>MIT</p></a>
+    <h5>Developers:</h5>
+    <p>John Resig, Brandon Aaron, Jörn Zaefferer</p>
+    <h5>Laguages:</h5>
+    <p>JavaScript</p>
+  </div>
+  <div class="w3-third w3-container">
+    <h5>jQuery</h5>
+    <input type="text" value="https://weblibcdn.github.io/libs/jquery/jquery-3.6.0.js" id="copyText">
+    <button onclick="copy()">Copy</button>
+    <h5>jQuery "Slim" (Min)</h5>
+    <input type="text" value="https://weblibcdn.github.io/libs/jquery/jquery-3.6.0.slim.min.js" id="copyText">
+    <button onclick="copy()">Copy</button>
+  </div>
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark w3-padding-16">
+  <center><p>&copy; 2021 waitblock (Ethan)</p></center>
+  <center><a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" target="_blank"><p>License Info</p></a></center>
+</footer>
+
+<!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
+<script>
+// Side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "100%";
+  x.style.fontSize = "40px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Tabs
+function openCity(evt, cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  var activebtn = document.getElementsByClassName("testbtn");
+  for (i = 0; i < x.length; i++) {
+    activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-dark-grey";
+}
+
+var mybtn = document.getElementsByClassName("testbtn")[0];
+mybtn.click();
+
+// Accordions
+function myAccFunc(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Slideshows
+var slideIndex = 1;
+
+function plusDivs(n) {
+  slideIndex = slideIndex + n;
+  showDivs(slideIndex);
+}
+
+function showDivs(n) {
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+
+showDivs(1);
+
+// Progress Bars
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 5;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width == 100) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      elem.innerHTML = width * 1  + '%';
+    }
+  }
+}
+</script>
+
+</body>
+</html>
